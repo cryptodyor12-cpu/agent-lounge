@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Lounge — an Agent ID-gated clubhouse</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◈</span>
+      <span class="brand-name">Agent Lounge</span>
+    </div>
+    <button id="connectBtn" class="btn btn-primary">Connect Wallet</button>
+  </header>
+
+  <main>
+    <section class="hero card">
+      <h1>A clubhouse for Agent ID holders</h1>
+      <p>
+        Agent Lounge is a members-only space gated by <strong>Agent ID</strong>.
+        Check in daily to build a streak, write on the shared guest wall, and
+        earn badge levels for showing up. Membership is proven on-chain —
+        if your address holds an Agent ID, you are in.
+      </p>
+      <p class="notice">
+        ⚠ Interacting with the lounge (check-in, posting, claiming badges)
+        requires holding an <strong>Agent ID</strong>. Browsing stats and the
+        guest wall is open to everyone.
+      </p>
+      <p id="walletStatus" class="status">No wallet connected.</p>
+      <p id="holderStatus" class="status"></p>
+    </section>
+
+    <section class="card" id="lookupCard">
+      <h2>Look up a member</h2>
+      <p class="muted">No wallet? Enter any address to view its lounge stats and Agent ID status.</p>
+      <div class="row">
+        <input id="lookupInput" type="text" placeholder="0x…" spellcheck="false" />
+        <button id="lookupBtn" class="btn">Look up</button>
+      </div>
+      <div id="lookupResult"></div>
+    </section>
+
+    <section class="card" id="memberCard">
+      <h2>Your lounge card</h2>
+      <div class="stats-grid">
+        <div class="stat"><span class="stat-num" id="statCheckIns">–</span><span class="stat-label">Check-ins</span></div>
+        <div class="stat"><span class="stat-num" id="statStreak">–</span><span class="stat-label">Current streak</span></div>
+        <div class="stat"><span class="stat-num" id="statBest">–</span><span class="stat-label">Best streak</span></div>
+        <div class="stat"><span class="stat-num" id="statPoints">–</span><span class="stat-label">Points</span></div>
+        <div class="stat"><span class="stat-num" id="statBadge">–</span><span class="stat-label">Badge level</span></div>
+      </div>
+      <p class="muted" id="badgeHint"></p>
+      <div class="row">
+        <button id="checkInBtn" class="btn btn-primary" disabled>Check in today</button>
+        <button id="claimBadgeBtn" class="btn" disabled>Claim badge</button>
+      </div>
+      <p id="actionStatus" class="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Guest wall</h2>
+      <form id="postForm">
+        <textarea id="postText" rows="3" maxlength="560"
+          placeholder="Leave a note on the wall (max 280 bytes)…"></textarea>
+        <div class="row space-between">
+          <span class="muted" id="charCount">0 / 280 bytes</span>
+          <button type="submit" class="btn btn-primary" id="postBtn" disabled>Post message</button>
+        </div>
+      </form>
+      <p id="postStatus" class="status"></p>
+      <ul id="wallList" class="wall"></ul>
+      <button id="refreshWallBtn" class="btn">Refresh wall</button>
+    </section>
+
+    <footer>
+      <p class="muted">
+        Agent Lounge is an open-source demo of Agent ID gating. The contract
+        holds no funds, has no owner, and cannot be changed after deployment.
+        Points and badges are in-app records only.
+      </p>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
