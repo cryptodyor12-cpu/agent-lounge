@@ -7,7 +7,7 @@ Submission period closes 2026-12-09 08:00 UTC._
 
 **Project name:** Agent Lounge
 
-**Website:** TBD (GitHub Pages after deploy)
+**Website:** https://cryptodyor12-cpu.github.io/agent-lounge/
 
 **Contract address(es):** 0x3c4184a1705751770433e052618268b0f24c0f70 (deployed 2026-11-19, tx 0xb622997e5d31b164990989f9cc368ed06da415c78ff81d3966089ea15670b0da)
 
